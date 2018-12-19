@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DND</string>
+    <string name="create_character_button">Create New Character</string>
+    <string name="view_characters_button">View Characters</string>
+</resources>
