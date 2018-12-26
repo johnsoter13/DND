@@ -30,17 +30,10 @@ class TableNameDialog : DialogFragment() {
             builder.setView(input)
             builder.setTitle("Name Your Attribute!")
             builder.setPositiveButton("Create") { dialog, id ->
-                val SQL_CREATE_ENTRIES =
-                    "CREATE TABLE ${input.text} (" +
-                            "${BaseColumns._ID} INTEGER PRIMARY KEY," +
-                            "${input.text} TEXT )"
 
-                val SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS ${input.text}"
                 val createAttributeIntent = Intent(context, CreateAttribute::class.java)
 
                 createAttributeIntent.putExtra("table_name", input.text.toString())
-                createAttributeIntent.putExtra("create_entries", SQL_CREATE_ENTRIES)
-                createAttributeIntent.putExtra("delete_entries", SQL_DELETE_ENTRIES)
 
                 startActivity(createAttributeIntent)}
             builder.setNegativeButton("Cancel") { dialog, which -> Log.v(TAG, "You clicked cancel! Sad times :(") }

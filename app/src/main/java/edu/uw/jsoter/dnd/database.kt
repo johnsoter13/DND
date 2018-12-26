@@ -3,19 +3,22 @@ package edu.uw.jsoter.dnd
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.provider.BaseColumns
 
-class FeedReaderDbHelper(context: Context, SQL_CREATE_ENTRIES: String, SQL_DELETE_ENTRIES: String) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
-    private val sqlCreate = SQL_CREATE_ENTRIES
-    private val sqlDelete = SQL_DELETE_ENTRIES
+class FeedReaderDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+    val SQL_CREATE_ENTRIES =
+        "CREATE TABLE Test (" + "${BaseColumns._ID} INTEGER PRIMARY KEY," + "TestColumn TEXT )"
+
+    val SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS Test"
 
     override fun onCreate(db: SQLiteDatabase) {
-        db.execSQL(sqlCreate)
+        //db.execSQL(SQL_CREATE_ENTRIES)
     }
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         // This database is only a cache for online data, so its upgrade policy is
         // to simply to discard the data and start over
-        db.execSQL(sqlDelete)
-        onCreate(db)
+       // db.execSQL(SQL_DELETE_ENTRIES)
+       // onCreate(db)
     }
     override fun onDowngrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         onUpgrade(db, oldVersion, newVersion)
