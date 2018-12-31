@@ -3,5 +3,6 @@
     <string name="create_character_button">Create New Character</string>
     <string name="view_characters_button">View Characters</string>
     <string name="create_attribute_button">Create New Attribute Table</string>
+    <string name="view_attributes_button">View Attributes</string>
     <string name="add_attribute_item">Add</string>
 </resources>

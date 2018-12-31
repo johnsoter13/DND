@@ -23,6 +23,14 @@
             android:layout_below="@id/create_attribute_button"
             android:layout_marginBottom="10dp"
             android:text="@string/view_characters_button"/>
+    <Button
+            android:id="@+id/view_attributes_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/view_characters_button"
+            android:layout_marginBottom="10dp"
+            android:text="@string/view_attributes_button"/>
 
     <Button
             android:id="@+id/create_attribute_button"

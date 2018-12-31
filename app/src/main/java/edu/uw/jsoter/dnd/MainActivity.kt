@@ -1,10 +1,7 @@
 package edu.uw.jsoter.dnd
 
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.BaseColumns
-import android.util.Log
 import android.view.View
 import android.widget.Button
 
@@ -18,6 +15,12 @@ class MainActivity : AppCompatActivity() {
         createAttributeButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v : View) {
                 TableNameDialog.newInstance().show(supportFragmentManager, null)
+            }
+        })
+        val viewAttributesButton: Button = findViewById(R.id.view_attributes_button)
+        viewAttributesButton.setOnClickListener(object: View.OnClickListener {
+            override fun onClick(v: View) {
+                TODO("fragment or activity?") //To change body of created functions use File | Settings | File Templates.
             }
         })
 
