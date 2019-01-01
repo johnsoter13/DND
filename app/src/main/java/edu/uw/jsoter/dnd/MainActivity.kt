@@ -1,5 +1,6 @@
 package edu.uw.jsoter.dnd
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -20,7 +21,8 @@ class MainActivity : AppCompatActivity() {
         val viewAttributesButton: Button = findViewById(R.id.view_attributes_button)
         viewAttributesButton.setOnClickListener(object: View.OnClickListener {
             override fun onClick(v: View) {
-                TODO("fragment or activity?") //To change body of created functions use File | Settings | File Templates.
+                val intent = Intent(applicationContext, AttributeList::class.java)
+                startActivity(intent)
             }
         })
 

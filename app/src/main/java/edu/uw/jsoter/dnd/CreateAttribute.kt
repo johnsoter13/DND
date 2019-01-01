@@ -15,6 +15,7 @@ import android.widget.Button
 import android.widget.EditText
 
 class CreateAttribute : AppCompatActivity() {
+    // TODO: fix list view, allow ability to delete values
     private val TAG = "CreateAttributeActivity"
     private lateinit var dbHelper: SQLiteOpenHelper
     private lateinit var db : SQLiteDatabase
@@ -61,10 +62,14 @@ class CreateAttribute : AppCompatActivity() {
                 }
             })
 
-            adapter = ArrayAdapter(this, R.layout.list_item, R.id.txtItem, values)
-            val listView = findViewById<AdapterView<ArrayAdapter<String>>>(R.id.list_view)
-            listView.adapter = adapter
+            setUpAdapter()
         }
+    }
+
+    private fun setUpAdapter() {
+        adapter = ArrayAdapter(this, R.layout.list_item, R.id.txtItem, values)
+        val listView = findViewById<AdapterView<ArrayAdapter<String>>>(R.id.list_view)
+        listView.adapter = adapter
     }
 
     private fun getInitialEntities(tableName: String) {

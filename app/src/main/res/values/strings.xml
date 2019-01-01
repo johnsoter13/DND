@@ -5,4 +5,7 @@
     <string name="create_attribute_button">Create New Attribute Table</string>
     <string name="view_attributes_button">View Attributes</string>
     <string name="add_attribute_item">Add</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
