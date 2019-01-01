@@ -1,5 +1,6 @@
 package edu.uw.jsoter.dnd
 
+import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.support.v7.app.AppCompatActivity
@@ -29,6 +30,11 @@ class AttributeList : AppCompatActivity() {
     private fun setUpAdapter() {
         adapter = ArrayAdapter(this, R.layout.list_item, R.id.txtItem, values)
         val listView = findViewById<AdapterView<ArrayAdapter<String>>>(R.id.attribute_list_view)
+        listView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, position, id ->
+            val intent = Intent(applicationContext, CreateAttribute::class.java)
+            intent.putExtra("table_name", values[position])
+            startActivity(intent)
+        }
         listView.adapter = adapter
     }
 
