@@ -16,7 +16,7 @@ import android.widget.Button
 import android.widget.EditText
 
 class CreateAttribute : AppCompatActivity() {
-    // TODO: fix list view, allow ability to delete values
+    // TODO: fix list view, allow ability to delete values, delete random init tables
     private val TAG = "CreateAttributeActivity"
     private lateinit var dbHelper: SQLiteOpenHelper
     private lateinit var db : SQLiteDatabase

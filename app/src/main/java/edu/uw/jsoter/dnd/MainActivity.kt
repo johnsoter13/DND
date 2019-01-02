@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         val createAttributeButton: Button = findViewById(R.id.create_attribute_button)
         createAttributeButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v : View) {
-                TableNameDialog.newInstance().show(supportFragmentManager, null)
+                TableNameDialog.newInstance("attribute").show(supportFragmentManager, null)
             }
         })
         val viewAttributesButton: Button = findViewById(R.id.view_attributes_button)
@@ -23,6 +23,12 @@ class MainActivity : AppCompatActivity() {
             override fun onClick(v: View) {
                 val intent = Intent(applicationContext, AttributeList::class.java)
                 startActivity(intent)
+            }
+        })
+        val createCharacterButton: Button = findViewById(R.id.create_character_button)
+        createCharacterButton.setOnClickListener(object: View.OnClickListener {
+            override fun onClick(v: View) {
+                TableNameDialog.newInstance("character").show(supportFragmentManager, null)
             }
         })
 

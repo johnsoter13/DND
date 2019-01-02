@@ -17,8 +17,14 @@ class TableNameDialog : DialogFragment() {
     private val TAG = "TableNameDialog"
 
     companion object {
-        fun newInstance(): TableNameDialog {
-            return TableNameDialog()
+        private val PURPOSE_KEY = "purpose_key"
+        fun newInstance(purpose: String): TableNameDialog {
+            val args = Bundle().apply {
+                putString(PURPOSE_KEY, purpose)
+            }
+            return TableNameDialog().apply {
+                arguments = args
+            }
         }
     }
 
@@ -26,16 +32,24 @@ class TableNameDialog : DialogFragment() {
         return activity?.let {
             val builder = AlertDialog.Builder(it)
             val input = EditText(context)
+            var purpose = ""
+            arguments?.let {
+                purpose = it.getString(PURPOSE_KEY)
+            }
             input.inputType = InputType.TYPE_CLASS_TEXT
             builder.setView(input)
-            builder.setTitle("Name Your Attribute!")
+            builder.setTitle("Name Your $purpose!")
             builder.setPositiveButton("Create") { dialog, id ->
-
-                val createAttributeIntent = Intent(context, CreateAttribute::class.java)
-
-                createAttributeIntent.putExtra("table_name", input.text.toString())
-
-                startActivity(createAttributeIntent)}
+                if(purpose == "attribute") {
+                    val createAttributeIntent = Intent(context, CreateAttribute::class.java)
+                    createAttributeIntent.putExtra("table_name", input.text.toString())
+                    startActivity(createAttributeIntent)
+                } else {
+                    val createCharacterIntent = Intent(context, CreateCharacter::class.java)
+                    createCharacterIntent.putExtra("character_name", input.text.toString())
+                    startActivity(createCharacterIntent)
+                }
+            }
             builder.setNegativeButton("Cancel") { dialog, which -> Log.v(TAG, "You clicked cancel! Sad times :(") }
             builder.create()
         } ?: throw IllegalStateException("Activity cannot be null")

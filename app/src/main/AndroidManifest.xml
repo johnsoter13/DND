@@ -20,7 +20,11 @@
                 android:name=".CreateAttribute"
                 android:parentActivityName=".MainActivity">
         </activity>
-        <activity android:name=".AttributeList"
+        <activity
+                android:name=".AttributeList"
+                android:parentActivityName=".MainActivity">
+        </activity>
+        <activity android:name=".CreateCharacter"
                   android:parentActivityName=".MainActivity">
         </activity>
     </application>
